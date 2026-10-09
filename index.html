@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Vinit Nayar</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '824861546605905');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" 
+         src="https://www.facebook.com/tr?id=824861546605905&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --brass-gold: #e5b869;
+      --brass-light: #fae4b5;
+      --deep-noir: #070908;
+      --ticket-bg: #0e1310;
+      --ticket-border: rgba(229, 184, 105, 0.3);
+      --chalk-gray: #a3b0a8;
+      --court-accent: #2e5a44;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--deep-noir);
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 14px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Ambient Warm Gold Dust Glow */
+    .vault-bg {
+      position: fixed;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 50% 15%, rgba(229, 184, 105, 0.12) 0%, transparent 60%),
+        radial-gradient(circle at 50% 85%, rgba(46, 90, 68, 0.2) 0%, transparent 70%),
+        #070908;
+      z-index: -2;
+    }
+
+    .diagonal-lines {
+      position: fixed;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.015) 0px,
+        rgba(255, 255, 255, 0.015) 1px,
+        transparent 1px,
+        transparent 12px
+      );
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Physical Perforated Ticket Stub Pass Container */
+    .ticket-stub {
+      width: 100%;
+      max-width: 410px;
+      background: var(--ticket-bg);
+      border: 1px solid var(--ticket-border);
+      border-radius: 20px;
+      position: relative;
+      box-shadow: 
+        0 30px 70px -15px rgba(0, 0, 0, 0.95),
+        0 0 30px rgba(229, 184, 105, 0.08);
+      overflow: visible;
+      animation: ticketDrop 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes ticketDrop {
+      from { opacity: 0; transform: translateY(-30px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Perforated Notches on Sides */
+    .notch-left, .notch-right {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      background: var(--deep-noir);
+      border-radius: 50%;
+      top: 68%;
+      z-index: 10;
+      border: 1px solid var(--ticket-border);
+    }
+    .notch-left {
+      left: -12px;
+      box-shadow: inset -3px 0 6px rgba(0,0,0,0.8);
+    }
+    .notch-right {
+      right: -12px;
+      box-shadow: inset 3px 0 6px rgba(0,0,0,0.8);
+    }
+
+    /* Top Stub: Main Identity Section */
+    .stub-upper {
+      padding: 34px 24px 24px;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Monogram Die-Cut Seal */
+    .diecut-seal {
+      position: relative;
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .seal-border {
+      position: absolute;
+      inset: -4px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, var(--brass-gold), #4a3818, var(--brass-light));
+      padding: 2px;
+      clip-path: polygon(15% 0%, 85% 0%, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0% 85%, 0% 15%);
+    }
+
+    .seal-inner {
+      width: 100%;
+      height: 100%;
+      background: #090e0b;
+      clip-path: polygon(15% 0%, 85% 0%, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0% 85%, 0% 15%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+    }
+
+    .seal-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .seal-fallback {
+      font-family: 'Italiana', serif;
+      font-size: 2.4rem;
+      color: var(--brass-gold);
+      display: none;
+    }
+
+    /* VIP Class Label */
+    .pass-type-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--brass-gold);
+      background: rgba(229, 184, 105, 0.08);
+      border: 1px solid rgba(229, 184, 105, 0.25);
+      padding: 4px 14px;
+      border-radius: 4px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .pass-type-badge::before {
+      content: 'ROYAL';
+      font-size: 8px;
+      background: var(--brass-gold);
+      color: #070908;
+      padding: 1px 4px;
+      border-radius: 2px;
+    }
+
+    /* Brand Typography */
+    .brand-title {
+      font-family: 'Italiana', serif;
+      font-size: 2.4rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+      background: linear-gradient(180deg, #ffffff 40%, var(--brass-light) 80%, var(--brass-gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .brand-sub {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--chalk-gray);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .brand-manifesto {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+      margin-bottom: 22px;
+      padding: 0 4px;
+    }
+
+    /* Perforated Divider Line */
+    .perforation-divider {
+      position: relative;
+      width: 100%;
+      height: 1px;
+      border-top: 2px dashed rgba(229, 184, 105, 0.25);
+      margin: 8px 0;
+    }
+
+    /* Lower Stub: Ticket Specifications & Action */
+    .stub-lower {
+      padding: 22px 24px 28px;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 0 0 20px 20px;
+    }
+
+    /* Ticket Box Clearance Details */
+    .stub-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 22px;
+      text-align: center;
+    }
+
+    .stub-meta-box {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 8px 4px;
+    }
+
+    .meta-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      color: #64748b;
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 2px;
+    }
+
+    .meta-val {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--brass-gold);
+    }
+
+    /* Clean Telegram Action Button (No Inline fbq Events) */
+    .btn-stub-access {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 17px;
+      background: linear-gradient(135deg, #1d3c2c 0%, #2e5a44 50%, #e5b869 100%);
+      color: #ffffff;
+      font-size: 1.05rem;
+      font-weight: 800;
+      text-decoration: none;
+      border-radius: 12px;
+      border: 1px solid rgba(229, 184, 105, 0.4);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+
+    .btn-stub-access::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transform: skewX(-25deg);
+      animation: sweepTicket 3.5s infinite;
+    }
+
+    @keyframes sweepTicket {
+      0% { left: -120%; }
+      30%, 100% { left: 160%; }
+    }
+
+    .btn-stub-access svg {
+      width: 22px;
+      height: 22px;
+      fill: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .btn-stub-access:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(229, 184, 105, 0.25);
+    }
+
+    .stub-footer-note {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      color: #64748b;
+      margin-top: 14px;
+      text-align: center;
+      letter-spacing: 0.06em;
+    }
+
+    /* Legal Strip */
+    .legal-strip {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 11px;
+      color: #64748b;
+      width: 100%;
+      max-width: 410px;
+      text-align: center;
+      font-family: 'Space Mono', monospace;
+    }
+
+    .legal-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .legal-nav a {
+      color: var(--brass-gold);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
+  <script src="https://dash.vortexwin.online/api/track/embed.js?v=3" async></script>
+</head>
+<body>
+
+  <div class="vault-bg"></div>
+  <div class="diagonal-lines"></div>
+
+  <!-- Physical Ticket Stub -->
+  <main class="ticket-stub">
+
+    <!-- Perforation Cutout Circles -->
+    <div class="notch-left"></div>
+    <div class="notch-right"></div>
+
+    <!-- Upper Stub -->
+    <div class="stub-upper">
+
+      <!-- Octagonal Die-Cut Gold Seal with img/Bombay.jpg -->
+      <div class="diecut-seal">
+        <div class="seal-border"></div>
+        <div class="seal-inner">
+          <img 
+            id="bombay-seal-photo"
+            class="seal-img" 
+            src="img/Bombay.jpg" 
+            alt="Bombay Badshah Tennis"
+            onerror="resolveSealLogo(this);"
+          >
+          <span id="bombay-seal-monogram" class="seal-fallback">BB</span>
+        </div>
+      </div>
+
+      <div class="pass-type-badge">
+       Vinit Nayar Tips
+      </div>
+
+      <h1 class="brand-title">Vinit Nayar Tips</h1>
+      <div class="brand-sub">Grand Slam Cricket Club</div>
+
+      <p class="brand-manifesto">
+        Official invitation to Vinit Nayar. Receive authenticated tournament briefings, surface condition analysis, and daily VIP broadcasts.
+      </p>
+
+    </div>
+
+    <!-- Dashed Ticket Tear Line -->
+    <div class="perforation-divider"></div>
+
+    <!-- Lower Stub -->
+    <div class="stub-lower">
+
+      <div class="stub-meta-grid">
+        <div class="stub-meta-box">
+          <span class="meta-tag">ADMIT</span>
+          <span class="meta-val">1 VIP</span>
+        </div>
+        <div class="stub-meta-box">
+          <span class="meta-tag">CIRCUIT</span>
+          <span class="meta-val">ALL TOURS</span>
+        </div>
+        <div class="stub-meta-box">
+          <span class="meta-tag">STATUS</span>
+          <span class="meta-val">FREE PASS</span>
+        </div>
+      </div>
+
+      <!-- Clean Telegram Link (No Inline Lead Event) -->
+      <a 
+        href="https://t.me/+hR1C9LhVyAlmMTVl" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="btn-stub-access"
+      >
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+        </svg>
+        Telegram Join
+      </a>
+
+      <div class="stub-footer-note">
+        PASS #BB-7729 • ENCRYPTED REDIRECTION
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- PixelGuard Legal Compliance Strip -->
+  <footer class="legal-strip">
+    <div class="legal-nav">
+      <a href="javascript:void(0)" onclick="window.pgOpenModal('privacy')">Privacy Policy</a>
+      <span>|</span>
+      <a href="javascript:void(0)" onclick="window.pgOpenModal('terms')">Terms &amp; Conditions</a>
+      <span>|</span>
+      <a href="javascript:void(0)" onclick="window.pgOpenModal('disclaimer')">Disclaimer</a>
+    </div>
+    <p style="margin: 0; opacity: 0.6; line-height: 1.4;">
+      Not affiliated with Telegram, ATP Tour, WTA, Meta Platforms, Inc., or Facebook. • © 2026 bombaybadshah.online
+    </p>
+  </footer>
+
+  <!-- BEGIN PIXELGUARD POLICY MODALS & SCRIPTS -->
+  <div id="pg-policy-modal-overlay" style="display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.88); backdrop-filter: blur(5px); z-index: 999999; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box;">
+    <div style="background: #0d120f; border: 1px solid #332717; border-radius: 14px; max-width: 600px; width: 100%; max-height: 85vh; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9); text-align: left;">
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid #241c10; background: #080b09;">
+        <h3 id="pg-modal-title" style="margin: 0; font-size: 15px; font-weight: 700; color: #fae4b5; font-family: 'Space Mono', monospace;">Legal Policy</h3>
+        <button type="button" onclick="window.pgCloseModal()" style="background: transparent; border: none; color: #94a3b8; font-size: 24px; line-height: 1; cursor: pointer; padding: 0 6px;">×</button>
+      </div>
+      <div id="pg-modal-body" style="padding: 20px; overflow-y: auto; font-size: 13px; line-height: 1.6; color: #cbd5e1; max-height: 60vh;"></div>
+      <div style="padding: 12px 20px; border-top: 1px solid #241c10; background: #080b09; display: flex; justify-content: flex-end;">
+        <button type="button" onclick="window.pgCloseModal()" style="background: #e5b869; color: #070908; border: none; padding: 8px 18px; border-radius: 6px; font-size: 12px; font-family: 'Space Mono', monospace; font-weight: 700; cursor: pointer;">CLOSE</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var logoPaths = [
+      'img/Bombay.jpg',
+      'img/bombay.jpg',
+      'img/Bombay.jpeg',
+      'img/bombay.jpeg',
+      'img/Bombay.png',
+      'Bombay.jpg',
+      'bombay.jpg'
+    ];
+    var pathIdx = 0;
+
+    function resolveSealLogo(img) {
+      pathIdx++;
+      if (pathIdx < logoPaths.length) {
+        img.src = logoPaths[pathIdx];
+      } else {
+        img.style.display = 'none';
+        var monogram = document.getElementById('bombay-seal-monogram');
+        if (monogram) monogram.style.display = 'block';
+      }
+    }
+  </script>
+
+  <script id="pg-policy-script">
+    (function () {
+      var contentMap = {
+        privacy: {
+          title: 'Privacy Policy',
+          body: '<h4 style="color:#e5b869;margin-bottom:8px;">1. Introduction</h4><p style="margin-bottom:14px;">We respect your privacy and are committed to protecting your personal data. This privacy policy explains how we collect and protect your information when you visit our website.</p><h4 style="color:#e5b869;margin-bottom:8px;">2. Information We Collect</h4><p style="margin-bottom:14px;">We may collect basic technical data including IP addresses, browser types, referral URLs, and interactions with buttons/links for analytical and quality improvement purposes.</p><h4 style="color:#e5b869;margin-bottom:8px;">3. Cookies & Advertising Pixels</h4><p style="margin-bottom:14px;">Our website utilizes standard measurement technologies including Meta Pixels and cookies to analyze audience reach and measure ad campaign performance.</p><h4 style="color:#e5b869;margin-bottom:8px;">4. Data Protection</h4><p>We implement strict security practices to keep your data safe. We never sell, rent, or distribute personal information to unauthorized third parties.</p>'
+        },
+        terms: {
+          title: 'Terms & Conditions',
+          body: '<h4 style="color:#e5b869;margin-bottom:8px;">1. Agreement to Terms</h4><p style="margin-bottom:14px;">By accessing or using our services, you agree to comply with these terms, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws.</p><h4 style="color:#e5b869;margin-bottom:8px;">2. Permitted Use</h4><p style="margin-bottom:14px;">This website and its materials are provided solely for personal, non-commercial informational use.</p><h4 style="color:#e5b869;margin-bottom:8px;">3. Disclaimer of Warranties</h4><p>The information on this website is provided "as is". We make no warranties, expressed or implied, regarding accuracy or fitness for a particular purpose.</p>'
+        },
+        disclaimer: {
+          title: 'Advertising Non-Affiliation Disclaimer',
+          body: '<h4 style="color:#e5b869;margin-bottom:8px;">Non-Affiliation Notice</h4><p style="margin-bottom:14px;">This website is NOT owned, operated, endorsed by, or affiliated with Telegram FZ-LLC, ATP Tour, WTA, Meta Platforms, Inc., or Facebook in any way.</p><p>TELEGRAM, FACEBOOK, and META are registered trademarks of their respective owners.</p>'
+        }
+      };
+      window.pgOpenModal = function (type) {
+        var modal = document.getElementById('pg-policy-modal-overlay');
+        var titleEl = document.getElementById('pg-modal-title');
+        var bodyEl = document.getElementById('pg-modal-body');
+        if (!modal || !titleEl || !bodyEl) return;
+        var data = contentMap[type] || contentMap.privacy;
+        titleEl.textContent = data.title;
+        bodyEl.innerHTML = data.body;
+        modal.style.display = 'flex';
+      };
+      window.pgCloseModal = function () {
+        var modal = document.getElementById('pg-policy-modal-overlay');
+        if (modal) modal.style.display = 'none';
+      };
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') window.pgCloseModal();
+      });
+      var overlay = document.getElementById('pg-policy-modal-overlay');
+      if (overlay) {
+        overlay.addEventListener('click', function (e) {
+          if (e.target === overlay) window.pgCloseModal();
+        });
+      }
+    })();
+  </script>
+  <!-- END PIXELGUARD POLICY MODALS & SCRIPTS -->
+
+</body>
+</html>
